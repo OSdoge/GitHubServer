@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GitHubServer\GitHubServer.csproj" />
+    <ProjectReference Include="..\GitHubServer1\GitHubServer.csproj" />
   </ItemGroup>
 
 </Project>
