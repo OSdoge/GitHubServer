@@ -11,7 +11,7 @@ namespace GitHubServer
 {
     public partial class GitHubServer
     {
-        public async Task<File> GetFile(string owner, string repoName, string path, string userAgent = "doge")
+        public async Task<GetFileResponse> GetFile(string owner, string repoName, string path, string userAgent = "doge")
         {
             var url = $"https://api.github.com/repos/{owner}/{repoName}/contents/{path}";
 
@@ -20,7 +20,7 @@ namespace GitHubServer
             client.DefaultRequestHeaders.Add("User-Agent", userAgent);
 
             var content = await (await client.GetAsync(url)).Content.ReadAsStringAsync();
-            var file = JsonConvert.DeserializeObject<File>(content);
+            var file = JsonConvert.DeserializeObject<GetFileResponse>(content);
 
             return file;
         }

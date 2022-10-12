@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GitHubServer
 {
-    public class File
+    public class GetFileResponse
     {
         public string Type { get; set; }
         public string Encoding { get; set; }
