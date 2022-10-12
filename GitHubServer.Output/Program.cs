@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using GitHubServer;
 
@@ -10,15 +11,8 @@ namespace GitHubServer.Output
         {
             GitHubServer gh = new GitHubServer();
 
-            var s = await gh.GetFile("OSdoge", repoName: "GitHubServer", "LICENSE.txt");
-            Console.WriteLine(s);
-
-            var (userAgent, token, data, owner, repoName, filePath) = ("Ng-Yu-Heng", "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", "please work :C", "OSdoge", "GitHubServer", "testing.txt");
-
-            foreach (var i in await gh.CreateFile(userAgent, token, data, owner, repoName, filePath))
-            {
-                Console.WriteLine(i);
-            }
+            var s = await gh.GetFile("OSdoge", "GitHubServer", "LICENSE.txt");
+            Console.WriteLine(Encoding.UTF8.GetString(Convert.FromBase64String(s.Content)));
         }
     }
 }
