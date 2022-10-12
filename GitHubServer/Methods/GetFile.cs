@@ -1,16 +1,13 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Octokit;
 
 namespace GitHubServer
 {
-    public class GitHubServer
+    public partial class GitHubServer
     {
         public async Task<string> GetFile(string owner, string repoName, string filePath, string userAgent = "doge")
         {
