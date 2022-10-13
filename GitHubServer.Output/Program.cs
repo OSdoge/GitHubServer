@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using GitHubServer;
+using DotNetEnv;
+using System.Diagnostics;
 
 namespace GitHubServer.Output
 {
@@ -9,16 +12,11 @@ namespace GitHubServer.Output
         static async Task Main(string[] args)
         {
             GitHubServer gh = new GitHubServer();
+            Env.TraversePath().Load();
+            var USERNAME = Env.GetString("USERNAME");
+            var TOKEN = Env.GetString("AUTH_TOKEN");
 
-            var s = await gh.GetFile("OSdoge", repoName: "GitHubServer", "LICENSE.txt");
-            Console.WriteLine(s);
-
-            var (userAgent, token, data, owner, repoName, filePath) = ("Ng-Yu-Heng", "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", "please work :C", "OSdoge", "GitHubServer", "testing.txt");
-
-            foreach (var i in await gh.CreateFile(userAgent, token, data, owner, repoName, filePath))
-            {
-                Console.WriteLine(i);
-            }
+            await gh.CreateFile(USERNAME, TOKEN, "among us", USERNAME, "github-api-testing", "t.txt");
         }
     }
 }
