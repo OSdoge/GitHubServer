@@ -6,7 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GitHubServer1\GitHubServer.csproj" />
+    <PackageReference Include="DotNetEnv" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GitHubServer\GitHubServer.csproj" />
   </ItemGroup>
 
 </Project>
